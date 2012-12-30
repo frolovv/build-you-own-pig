@@ -44,75 +44,35 @@
 </script>
 
 <div class="container">
+
     <div class="row" id="hello" name="hello">
         <div class="span12">
             <h1>Build you own Pig!</h1>
         </div>
     </div>
 
-<form action="#" method="get" class="form-horizontal" id="user-selection" name="user-selection">
-    <div class="control-group">
-        <label class="control-label" for="srcSelect">Select src</label>
-        <div class="controls">
-            <select id="srcSelect" name="src" class="input-xlarge">
-		        <option>1</option>
-		        <option>2</option>
-		        <option>3</option>
-		        <option>4</option>
-		        <option>5</option>
-                <option>6</option>
-                <option>17</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-                <option>42</option>
-                <option>44</option>
-                <option>45</option>
-	        </select>
-        </div>
-    </div>
-
-    <div class="control-group">
-        <label class="control-label" for="evids">select evids</label>
-        <div class="controls">
-            <input type="text" class="input-xlarge" id="evids" name="evids" placeholder="1, 2, 3, 4" value="1, 2, 3, 4">
-        </div>
-    </div>
-
-    <div class="control-group">
-        <label class="control-label" for="fields">select fields</label>
-        <div class="controls">
-            <input type="text"  class="input-xlarge" id="fields" name="fields" placeholder="uuid, evid, " value="uuid, evid" data-provide="typeahead" data-source='["evid", "date_created"]'>
-        </div>
-    </div>
-
-    <div class="control-group">
-        <label class="control-label" for="startDate">select start date</label>
-        <div class="controls">
-            <input type="datetime"  class="input-small" id="startDate" name="startDate" placeholder="2012-12-12" value="2012-12-12" data-date-format="yyyy-mm-dd">
-        </div>
-    </div>
-
-    <div class="control-group">
-        <label class="control-label" for="endDate">select end date</label>
-        <div class="controls">
-            <input type="datetime" class="input-small" id="endDate" name="endDate" placeholder="2012-12-12" value="2012-12-12" data-date-format="yyyy-mm-dd">
-        </div>
-    </div>
-
-    <div class="control-group">
-    <div class="controls">
-      <button type="submit" class="btn btn-primary" id="build-pig" name="build-pig">Build Pig</button>
-      <button type="reset" class="btn" id="clear-pig-area" name="clear-pig-area">Clear Pig</button>
-    </div>
-  </div>
-</form>
-
-<div class="row" id="pig-area" name="pig-area">
+    <div class="row" id="wql-form" name="wql-form">
         <div class="span12">
-            <textarea class="span11" rows="20" cols="100" id="pig-script-area" name="pig-script-area"></textarea>
+        <form action="#" method="get" class="form-horizontal" id="user-selection" name="user-selection">
+            <div class="control-group">
+                    <textarea class="span11" rows="10" cols="250" id="wql" name="wql"></textarea>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary" id="build-pig" name="build-pig">Build Pig</button>
+                    <button type="reset" class="btn" id="clear-pig-area" name="clear-pig-area">Clear Pig</button>
+                </div>
+            </div>
+        </form>
         </div>
-</div>
+    </div>
+
+
+    <div class="row" id="pig-area" name="pig-area">
+        <div class="control-group span12">
+            <textarea class="span11" rows="10" cols="250" id="pig-script-area" name="pig-script-area"></textarea>
+        </div>
+    </div>
 </div>
 
 </body>
