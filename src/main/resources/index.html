@@ -14,10 +14,18 @@
 <script>
     $(function() {
 
-        $("#pig-area").hide();
+        $('body').keyup(function(){
+            $(document).trigger("pigify-wql");
+            return false;
+            return false;
+        });
 
         $('#build-pig').click(function(event) {
-            $("#pig-area").show();
+            $(document).trigger("pigify-wql");
+            return false;
+        });
+
+        $(document).bind("pigify-wql", null, function(event, request){
             var request = $("#user-selection").serialize();
             $(document).trigger("fetch-pig-script", request );
             return false;
