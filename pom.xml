@@ -36,6 +36,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>1.6</version>
+        </dependency>
+        <dependency>
             <groupId>wql2pig</groupId>
             <artifactId>com.vf.wql2pig</artifactId>
             <version>1.0-SNAPSHOT</version>
