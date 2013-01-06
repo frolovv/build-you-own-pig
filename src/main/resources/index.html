@@ -5,11 +5,45 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/datepicker.css" rel="stylesheet">
+    <link href="css/colors.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
 </head>
 <body>
+
+<script>
+    function getColorFor(token){
+    var keywords = ["foreach","generate", "as", "join", "group", "by", "using", "parallel", "desc", "asc", "order", "load"];
+    var types = ["long", "chararray"];
+    if(contains(keywords, token))
+    return 'keyword';
+    else if (contains(types, token))
+    return 'type';
+    else return 'regular';
+    }
+
+    function contains( arr, value ) {
+    var i = 0, len = arr.length;
+    while( i < len && arr[i] != value ) {
+    i++;
+    }
+    return i != len;
+    }
+
+    function colorize(name, data){
+    data = data.replace(/;/gi, '; ', "/gi")
+    var words = data.split(" ");
+    for(var i = 0; i < words.length; i++){
+        $(name).append('<span class=\"' + getColorFor(words[i]) + '\">' + words[i] + '</span>');
+        $(name).append('<span> </span>');
+        if(contains(words[i], ';'))
+            $(name).append('<br/><br/>');
+    }
+}
+
+
+</script>
 
 <script>
     $(function() {
@@ -43,11 +77,12 @@
 
         $(document).bind("pig-is-ready", null, function(event, data) {
             $("#pig-script-area").html("");
-            $("#pig-script-area").append(data.pig);
+            //$("#pig-script-area").append(data.pig);
+            if (data.pig)
+                colorize("#pig-script-area", data.pig);
         });
 
-        $("#startDate").datepicker();
-        $("#endDate").datepicker();
+        $('#wql').focus();
     });
 </script>
 
@@ -78,7 +113,7 @@
 
     <div class="row" id="pig-area" name="pig-area">
         <div class="control-group span12">
-            <textarea class="span11" rows="10" cols="250" id="pig-script-area" name="pig-script-area"></textarea>
+            <p class="span11" id="pig-script-area" name="pig-script-area"></p>
         </div>
     </div>
 </div>
